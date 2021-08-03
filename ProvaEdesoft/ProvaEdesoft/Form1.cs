@@ -85,10 +85,10 @@ namespace ProvaEdesoft
                 }
                 SolicitaGeracaoRelatorio(txtInformeRacaCao.Text, diretorio);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Console.WriteLine("btnGerarRelatório_Click: " + ex.Message);
             }
 
         }
@@ -120,13 +120,28 @@ namespace ProvaEdesoft
                     ///
                     using (var workbook = new XLWorkbook())
                     {
-                        //Formatação da planilha
+                        //Formatação dos nomes das colunas 
                         var worksheet = workbook.Worksheets.Add("RelacionamentoDono&Cao");
                         var currentRow = 1;
                         worksheet.Cell(currentRow, 1).Value = "Nome do Dono";
                         worksheet.Cell(currentRow, 2).Value = "Nome do Cão";
                         worksheet.Cell(currentRow, 3).Value = "Raça do Cão";
 
+                        //Cor de fundo da celula
+                        worksheet.Cell(currentRow, 1).Style.Fill.BackgroundColor =XLColor.LightBlue;
+                        worksheet.Cell(currentRow, 2).Style.Fill.BackgroundColor = XLColor.LightBlue;
+                        worksheet.Cell(currentRow, 3).Style.Fill.BackgroundColor = XLColor.LightBlue;
+
+                        //Estilo das bordas das celulas
+                        worksheet.Cell(currentRow, 1).Style.Border.OutsideBorder = XLBorderStyleValues.Double;
+                        worksheet.Cell(currentRow, 2).Style.Border.OutsideBorder = XLBorderStyleValues.Thick;
+                        worksheet.Cell(currentRow, 3).Style.Border.OutsideBorder = XLBorderStyleValues.Hair;
+
+                        //Cor da fonte das palavras
+                        worksheet.Cell(currentRow, 1).Style.Font.FontColor = XLColor.Red;
+                        worksheet.Cell(currentRow, 2).Style.Font.FontColor = XLColor.Blue;
+                        worksheet.Cell(currentRow, 3).Style.Font.FontColor = XLColor.DarkGreen;
+                         
                         //Preenchimento da planilha
                         foreach (var m in relatorioDonoCao)
                         {
