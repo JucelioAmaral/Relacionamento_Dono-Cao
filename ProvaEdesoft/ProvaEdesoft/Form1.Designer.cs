@@ -42,9 +42,11 @@ namespace ProvaEdesoft
             this.lblNomeCao = new System.Windows.Forms.Label();
             this.lblNomeDoDono = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblDiretorioDestino = new System.Windows.Forms.Label();
             this.btnGerarRelatório = new System.Windows.Forms.Button();
             this.txtInformeRacaCao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.fbdDestino = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -149,21 +151,30 @@ namespace ProvaEdesoft
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblDiretorioDestino);
             this.groupBox2.Controls.Add(this.btnGerarRelatório);
             this.groupBox2.Controls.Add(this.txtInformeRacaCao);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(12, 201);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(659, 101);
+            this.groupBox2.Size = new System.Drawing.Size(659, 81);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gerar relatório";
             // 
+            // lblDiretorioDestino
+            // 
+            this.lblDiretorioDestino.AutoSize = true;
+            this.lblDiretorioDestino.Location = new System.Drawing.Point(6, 51);
+            this.lblDiretorioDestino.Name = "lblDiretorioDestino";
+            this.lblDiretorioDestino.Size = new System.Drawing.Size(0, 13);
+            this.lblDiretorioDestino.TabIndex = 11;
+            // 
             // btnGerarRelatório
             // 
-            this.btnGerarRelatório.Location = new System.Drawing.Point(9, 60);
+            this.btnGerarRelatório.Location = new System.Drawing.Point(493, 14);
             this.btnGerarRelatório.Name = "btnGerarRelatório";
-            this.btnGerarRelatório.Size = new System.Drawing.Size(108, 23);
+            this.btnGerarRelatório.Size = new System.Drawing.Size(139, 27);
             this.btnGerarRelatório.TabIndex = 10;
             this.btnGerarRelatório.Text = "Gerar relatório";
             this.btnGerarRelatório.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -172,9 +183,9 @@ namespace ProvaEdesoft
             // 
             // txtInformeRacaCao
             // 
-            this.txtInformeRacaCao.Location = new System.Drawing.Point(117, 19);
+            this.txtInformeRacaCao.Location = new System.Drawing.Point(123, 25);
             this.txtInformeRacaCao.Name = "txtInformeRacaCao";
-            this.txtInformeRacaCao.Size = new System.Drawing.Size(471, 20);
+            this.txtInformeRacaCao.Size = new System.Drawing.Size(214, 20);
             this.txtInformeRacaCao.TabIndex = 10;
             // 
             // label4
@@ -182,15 +193,15 @@ namespace ProvaEdesoft
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 13);
+            this.label4.Size = new System.Drawing.Size(114, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Informe a raça do cão";
+            this.label4.Text = "Informe a raça do cão:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 307);
+            this.ClientSize = new System.Drawing.Size(683, 294);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -224,6 +235,8 @@ namespace ProvaEdesoft
         private System.Windows.Forms.Button btnGerarRelatório;
         private System.Windows.Forms.TextBox txtInformeRacaCao;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.FolderBrowserDialog fbdDestino;
+        private System.Windows.Forms.Label lblDiretorioDestino;
     }
 }
 

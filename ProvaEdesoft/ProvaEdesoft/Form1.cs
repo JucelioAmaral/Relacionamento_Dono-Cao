@@ -69,15 +69,37 @@ namespace ProvaEdesoft
 
         private void btnGerarRelatório_Click(object sender, EventArgs e)
         {
-            SolicitaGeracaoRelatorio(txtInformeRacaCao.Text);
+            string diretorio= "";
+            try
+            {
+                //Define as propriedades do controle FolderBrowserDialog
+                fbdDestino.Description = "Selecione uma pasta de destino:";
+                this.fbdDestino.ShowNewFolderButton = true;
+                //Exibe a caixa de diálogo
+                this.fbdDestino.RootFolder = System.Environment.SpecialFolder.MyComputer;
+                if (fbdDestino.ShowDialog() == DialogResult.OK)
+                {
+                    //Exibe a pasta selecionada
+                    diretorio = fbdDestino.SelectedPath;
+                    diretorio = diretorio + @"\";
+                }
+                SolicitaGeracaoRelatorio(txtInformeRacaCao.Text, diretorio);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
-        public void SolicitaGeracaoRelatorio(string racaCao)
+        public void SolicitaGeracaoRelatorio(string racaCao, string diretorio)
         {
             crud c = null;
             List<ModelDonoCao> relatorioDonoCao = null;
             ModelDonoCao mDC = null;
             try
             {
+                lblDiretorioDestino.Text = diretorio + "RelatorioDonoCao.xlsx";
                 c = new crud();
                 relatorioDonoCao = c.Relatorio(racaCao);
                 mDC = new ModelDonoCao();
@@ -120,7 +142,8 @@ namespace ProvaEdesoft
                         {
                             workbook.SaveAs(stream);
                             var content = stream.ToArray();
-                            workbook.SaveAs(@"E:\APLICAÇÕES E CURSOS\PROVA EDESOFT\ProvaEdesoft\RelatorioDonoCao.xlsx");
+                            //workbook.SaveAs(@"E:\APLICAÇÕES E CURSOS\PROVA EDESOFT\ProvaEdesoft\RelatorioDonoCao.xlsx");
+                            workbook.SaveAs(@diretorio + "RelatorioDonoCao.xlsx");
                         }
                         MessageBox.Show("Relatório gerado no diretório informado.");
                     }
