@@ -10,7 +10,7 @@ App feito em .Net Framework 4.6.1 usando Entity framework para persistencia, ace
 
 ## Como baixar o código
 
-git clone https://github.com/JucelioAmaral/Dono-Cao.git
+git clone https://github.com/JucelioAmaral/Relacionamento_Dono-Cao.git
 
 ## Como configurar?
 
